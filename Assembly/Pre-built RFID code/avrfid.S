@@ -214,6 +214,9 @@ main:
         manchester	ROW_PARITY(EM4102_UNIQUE_ID >> 0), 5
         manchester	COLUMN_PARITY, 4
         stop_bit
+		
+		ldi r16, 0xFF
+		OUT PINB0, r16
         
         /*
          * Emit a 0 at the baseband layer.
