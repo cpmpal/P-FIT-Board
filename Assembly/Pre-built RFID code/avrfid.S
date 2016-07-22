@@ -122,7 +122,7 @@
 
 .global main
 
-#define OUT_PINS       _BV(PINB3) | _BV(PINB4)
+#define OUT_PINS       _BV(PINB0) | _BV(PINB1)
 
     .macro	delay cycles
     .if \cycles > 1
@@ -215,8 +215,8 @@ main:
         manchester	COLUMN_PARITY, 4
         stop_bit
 		
-		ldi r16, 0xFF
-		OUT PINB0, r16
+		//ldi r16, 0xFF
+		//OUT PINB0, r16
         
         /*
          * Emit a 0 at the baseband layer.
