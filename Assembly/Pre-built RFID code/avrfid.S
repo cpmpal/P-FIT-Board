@@ -100,7 +100,7 @@
 
 #define EM4102_MFR_ID		0x12
 #define EM4102_UNIQUE_ID	0x3456789A
-
+//#define EM4102_UNIQUE_ID_DEPRESSED		0x3456789B
 /*
  * For the HID card:
  *   A 20-bit manufacturer code, 8-bit site code, and 16-bit unique ID, 1-bit odd parity.
@@ -122,7 +122,7 @@
 
 .global main
 
-#define OUT_PINS       _BV(PINB0) | _BV(PINB1)
+#define OUT_PINS       _BV(PINB3) | _BV(PINB4 )
 
     .macro	delay cycles
     .if \cycles > 1
@@ -181,7 +181,6 @@
                          (EM4102_UNIQUE_ID) )
 
 main:
-
         .macro	baseband_0
         rcall	baseband30_0
         rjmp	.+0
@@ -214,9 +213,6 @@ main:
         manchester	ROW_PARITY(EM4102_UNIQUE_ID >> 0), 5
         manchester	COLUMN_PARITY, 4
         stop_bit
-		
-		//ldi r16, 0xFF
-		//OUT PINB0, r16
         
         /*
          * Emit a 0 at the baseband layer.

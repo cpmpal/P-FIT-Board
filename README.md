@@ -6,6 +6,7 @@ Using atmel studio to build the assembly and then avrdude to push it to the Atti
 
 The current basic config is to:
 1. Install WinAvr
+1a. copy over the msys driver from the pre-built assembly folder to the utils/bin folder under the winavr installation directory
 2. Install Atmel Studio
 3. At the moment create an assembly project to pull in headers for the attiny
 4. Copy over assembly from the folder
